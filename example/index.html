@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeeCanvas example</title>
+    <script src="../dist/LeeCanvas.js"></script>
+</head>
+<body>
+<canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
+<img src="./bg.jpg" id="img" width="0" height="0">
+<script>
+    var bg={
+        src:document.getElementById('img').src,
+        x:0,
+        y:0,
+        width:1563,
+        height:1180,
+        borderRadius:0
+    }
+
+    var canvas=new LeeCanvas('test')
+    canvas.addDrawImageTask(bg)
+    canvas.addDrawTextTask(['【企服观察】美团上市后首份季报：B端成新增长点，出行业务仍拖累财报',{
+        text:"美团第三季度营业收入191亿元，同比增长97%；毛利总额46亿元，同比增长33.2%。",
+        fontSize:48,
+        color:'666666',
+        fontWeight:500,
+    }],{
+        x:110,
+        y:496,
+        width:1340,
+        fontSize:54,
+        fontWeight:'bolder',
+        fontFamily:"PingFangSC-Regular,'Microsoft YaHei',SimSun,Arial,'Helvetica Neue',sans-serif",
+        lineHeight:70,
+        color:'#1a1a1a',
+        marginBottom:40
+    })
+    canvas.draw(()=>{
+        canvas.saveToPng("LeeCanvas")
+    })
+</script>
+</body>
+</html>
