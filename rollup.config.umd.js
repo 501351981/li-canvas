@@ -9,9 +9,9 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  input: 'src/LeeCanvas.js',
+  input: 'src/index.js',
   output: {
-    file: 'dist/LeeCanvas.umd.js',
+    file: 'dist/lee-canvas.umd.js',
     name: 'LeeCanvas',
     format: 'umd',
   },

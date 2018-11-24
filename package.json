@@ -1,8 +1,9 @@
 {
-  "name": "LeeCanvas.js",
-  "officialName": "LeeCanvas.js",
+  "name": "lee-canvas",
+  "private": false,
+  "officialName": "lee-canvas.js",
   "version": "0.0.1",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "summary": "封装了canva的图片绘制、文字绘制、图片下载等功能",
   "description": "封装了canva的图片绘制、文字绘制、图片下载等功能",
   "scripts": {
@@ -11,12 +12,8 @@
     "build:iife": "cross-env NODE_ENV=rollup rollup -c rollup.config.iife.js",
     "build": "npm run build:umd && npm run build:iife && npm run build:lib"
   },
-  "dependencies": {
-  },
-  "author": {
-    "name": "liyulin",
-    "url": "https://github.com/501351981"
-  },
+  "dependencies": {},
+  "author": "hit757",
   "homepage": "http://shanhuxueyuan.com",
   "license": "MIT",
   "keywords": [
@@ -25,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/501351981/LeeCanvas.git"
+    "url": "git+https://github.com/501351981/lee-canvas.git"
   },
   "bugs": {
-    "url": "https://github.com/501351981/LeeCanvas.git/issues"
+    "url": "https://github.com/501351981/lee-canvas.git/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -45,5 +42,9 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-uglify": "^3.0.0",
     "size-limit": "^0.18.0"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }

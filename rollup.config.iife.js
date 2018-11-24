@@ -11,7 +11,7 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
   input: 'src/index.js',
   output: {
-    file: 'dist/LeeCanvas.js',
+    file: 'dist/lee-canvas.js',
     name: 'LeeCanvas',
     format: 'iife',
   },
