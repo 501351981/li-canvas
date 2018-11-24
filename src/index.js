@@ -1,3 +1,3 @@
-import LeeCanvas from './LeeCanvas';
+import LeeCanvas from './lee-canvas';
 
 export default LeeCanvas;
