@@ -1,10 +1,10 @@
 {
-  "name": "canvas-nest.js",
-  "officialName": "canvas-nest.js",
-  "version": "2.0.3",
-  "main": "lib/index.js",
-  "summary": "A nest backgroud of website draw on canvas use javascript, do not depends on jQuery.",
-  "description": "A nest backgroud of website draw on canvas use javascript, do not depends on jQuery.",
+  "name": "LeeCanvas.js",
+  "officialName": "LeeCanvas.js",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "summary": "封装了canva的图片绘制、文字绘制、图片下载等功能",
+  "description": "封装了canva的图片绘制、文字绘制、图片下载等功能",
   "scripts": {
     "build:lib": "rimraf ./lib && cross-env NODE_ENV=babel babel src -d lib",
     "build:umd": "cross-env NODE_ENV=rollup rollup -c rollup.config.umd.js",
@@ -12,35 +12,23 @@
     "build": "npm run build:umd && npm run build:iife && npm run build:lib"
   },
   "dependencies": {
-    "size-sensor": "^0.2.0"
   },
-  "size-limit": [
-    {
-      "limit": "2.5 KB",
-      "path": "dist/canvas-nest.umd.js"
-    },
-    {
-      "limit": "2.5 KB",
-      "path": "dist/canvas-nest.js"
-    }
-  ],
   "author": {
-    "name": "hustcc",
-    "url": "https://github.com/hustcc"
+    "name": "liyulin",
+    "url": "https://github.com/501351981"
   },
-  "homepage": "https://atool.vip",
+  "homepage": "http://shanhuxueyuan.com",
   "license": "MIT",
   "keywords": [
     "canvas",
-    "html5",
-    "nest"
+    "html5"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hustcc/canvas-nest.js"
+    "url": "https://github.com/501351981/LeeCanvas.git"
   },
   "bugs": {
-    "url": "https://github.com/hustcc/canvas-nest.js/issues"
+    "url": "https://github.com/501351981/LeeCanvas.git/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

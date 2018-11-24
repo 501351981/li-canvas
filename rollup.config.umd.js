@@ -21,10 +21,10 @@ export default {
       exclude: 'node_modules/**',
     }),
     commonjs(),
-    // uglify({
-    //   output: { comments: false },
-    //   compress: { warnings: false }
-    // }),
+    uglify({
+      output: { comments: false },
+      compress: { warnings: false }
+    }),
   ],
   external: [],
 };
