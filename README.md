@@ -43,6 +43,7 @@ npm install --save lee-canvas.js
 ## 图片绘制
 
 - 绘制单张图片
+
 调用addDrawImageTask(image)，其中参数image是一个对象，包括
 src：图片的url地址
 x：图片在canvas画布上的左上角x坐标
@@ -80,6 +81,7 @@ borderRadius：图片圆角半径
 	...
 ```
 - 绘制多图
+
 可以连续多次调用addDrawImageTask(image)，也可以传图一个数组
 
 ```html
@@ -197,6 +199,7 @@ borderRadius：图片圆角半径
 	...
 ```
 - 绘制圆角或圆形图片
+
 只需要设置borderRadius即可
 ```html
 	...
@@ -225,19 +228,33 @@ borderRadius：图片圆角半径
 
 ## 绘制文字
 - 绘制一段文字
+
 调用addDrawTextTask(text,style)
+
 text:要绘制的文字
+
 style：文字样式，包括
+
        x：文字绘制起始位置左上角坐标x
+
        y：文字绘制其实位置左上角坐标y
+
        width：文字一行的宽度，超出会自动进行换行
+
        fontSize：文字大小，整数，单位为px
+
        fontWeight：文字粗细bold、bolder等或者400，500，600...同css的font-weight
+
        fontFamily：文字字体，同css
+
        lineHeight：行高，整数，单位px
+
        color：颜色
+
        marginBottom：如果有多段文字，还可以指定段落之间的距离
+
 文字绘制，同样是异步的，知道调用draw(callback)才真正进行绘制
+
 ```html
 	...
 <body>
@@ -266,8 +283,11 @@ style：文字样式，包括
 ```
 
 - 绘制多段文字
+
 方法1：反复调用addDrawTextTask(text,style)，同上
+
 方法2：text可以传入一个数组，可以共用style
+
 ```html
 	...
 <body>
@@ -366,10 +386,13 @@ style：文字样式，包括
 	...
 ```
 
-## 保存图片
+## 保存下载图片
 - 下载图片
+
 下载为png图片：saveToPng("文件名")
+
 下载为jpeg图片：saveToJpeg("文件名")
+
 下载为gif图片：saveToGif("文件名")
 
 注意：下载图片必须在draw()的回调函数中调用才可以生效
@@ -398,7 +421,9 @@ style：文字样式，包括
 	...
 ```
 - 获取图片数据
+
 有时候，我们并不想下载图片，比如在微信浏览器中，我们其实是希望用户长按图片保存，此时，我们希望canvas合成的图片数据，插入到img的src中
+
 调用：getImageData()可以获取合成的图片数据
 
 ```html
