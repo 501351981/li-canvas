@@ -2,7 +2,7 @@
   "name": "li-canvas",
   "private": false,
   "officialName": "li-canvas.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "summary": "封装了canva的图片绘制、文字绘制、图片下载等功能",
   "description": "封装了canva的图片绘制、文字绘制、图片下载等功能",
