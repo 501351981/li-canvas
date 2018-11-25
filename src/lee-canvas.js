@@ -7,6 +7,8 @@ const addTask=Symbol()
 const runTask=Symbol()
 const drawImage=Symbol()
 const drawImageWithBorderRadius=Symbol()
+const drawTexts=Symbol()
+const drawText=Symbol()
 
 const downloadMime = 'image/octet-stream'
 const DRAW_IMAGE_TASK='DRAW_IMAGE_TASK'
@@ -80,7 +82,7 @@ class Canvas {
 
     [fixType](type) {
         type = type.toLowerCase().replace(/jpg/i, 'jpeg');
-        type = type.match(/png|jpeg|bmp|gif/)[0];
+        type = type.match(/png|jpeg|gif/)[0];
         return 'image/' + type;
     }
 
@@ -91,18 +93,20 @@ class Canvas {
         this[saveFile](strData)
     }
 
-    saveToPng(fileName='iCanvas'){
+    saveToPng(fileName='lee-canvas'){
         this.saveFileName=fileName+'.png'
         this[saveToImage]('png')
     }
-    saveToJpeg(fileName='iCanvas'){
+    saveToJpeg(fileName='lee-canvas'){
         this.saveFileName=fileName+'.jpeg'
         this[saveToImage]('jpeg')
     }
-
-    [addTask](type,params){
-        this.tasks.push({type,params})
+    saveToGif(fileName='lee-canvas'){
+        this.saveFileName=fileName+'.gif'
+        this[saveToImage]('gif')
     }
+
+
     addDrawImageTask(image){
         if(isArray(image)){
             image.forEach((img)=>{
@@ -119,6 +123,14 @@ class Canvas {
     addDrawTextTask(text,style={}){
         this[addTask](DRAW_TEXT_TASK,{text,style})
     }
+
+    [addTask](type,params){
+        this.tasks.push({type,params})
+    }
+
+    draw(callback=''){
+        this[runTask](callback)
+    }
     [runTask](callback){
         if(this.tasks.length==0){
             typeof callback=='function'&&callback()
@@ -131,7 +143,7 @@ class Canvas {
                     this[drawImage](task.params,()=>{this[runTask](callback)})
                     break
                 case DRAW_TEXT_TASK:
-                    this.drawTexts(task.params)
+                    this[drawTexts](task.params)
                     this[runTask](callback)
                     break
                 default:
@@ -140,9 +152,7 @@ class Canvas {
 
         }
     }
-    draw(callback=''){
-        this[runTask](callback)
-    }
+
 
     [drawImage](image,callback){
         let img=new Image();
@@ -178,26 +188,22 @@ class Canvas {
         this.ctx.restore()
     }
 
-    getImageData(){
-        return this.canvas.toDataURL('image/png')
-    }
-
-    drawTexts({text,style}){
+    [drawTexts]({text,style}){
         if(isString(text)){
             let textStyle=Object.assign({},this.fontStyle,style)
-            this.drawText(text,textStyle)
+            this[drawText](text,textStyle)
         }else if(isArray(text)){
             text.forEach((t,index)=>{
                 if(isString(t)){
                     let textStyle=Object.assign({},this.fontStyle,style)
-                    this.drawText(t,textStyle)
+                    this[drawText](t,textStyle)
                     if(index==0){
                         delete style.x
                         delete style.y
                     }
                 }else if(isObject(t)){
                     let textStyle=Object.assign({},this.fontStyle,style,t)
-                    this.drawText(t.text,textStyle)
+                    this[drawText](t.text,textStyle)
                     if(index==0){
                         delete style.x
                         delete style.y
@@ -206,12 +212,10 @@ class Canvas {
             })
         }else if(isObject(text)){
             let textStyle=Object.assign({},this.fontStyle,style,text)
-            this.drawText(text.text,textStyle)
+            this[drawText](text.text,textStyle)
         }
     }
-    drawText(text,style){
-        console.log(text)
-        console.log(style)
+    [drawText](text,style){
         if(style.hasOwnProperty('x')){
             this.fontStartX = style.x
         }
@@ -248,6 +252,12 @@ class Canvas {
             }
         }
     }
+
+    getImageData(){
+        return this.canvas.toDataURL('image/png')
+    }
+
+
 }
 
 export default Canvas
