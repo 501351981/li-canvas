@@ -11,8 +11,8 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
   input: 'src/index.js',
   output: {
-    file: 'dist/lee-canvas.umd.js',
-    name: 'LeeCanvas',
+    file: 'dist/li-canvas.umd.js',
+    name: 'LiCanvas',
     format: 'umd',
   },
   plugins: [

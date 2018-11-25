@@ -13,8 +13,8 @@ const defaultParams={
     }
 }
 
-export function initMixin(LeeCanvas) {
-    LeeCanvas.prototype._init=function(canvas_id,{backgroundColor,fontStyle}=defaultParams){
+export function initMixin(LiCanvas) {
+    LiCanvas.prototype._init=function(canvas_id,{backgroundColor,fontStyle}=defaultParams){
         this.canvas=document.getElementById(canvas_id)
         this.ctx=this.canvas.getContext("2d")
         this.canvasWidth=this.canvas.width
@@ -34,7 +34,7 @@ export function initMixin(LeeCanvas) {
     }
 }
 
-function setBackgroundColor(LeeCanvas,color){
-    LeeCanvas.ctx.fillStyle=color
-    LeeCanvas.ctx.fillRect(0,0,LeeCanvas.canvasWidth,LeeCanvas.canvasHeight)
+function setBackgroundColor(LiCanvas,color){
+    LiCanvas.ctx.fillStyle=color
+    LiCanvas.ctx.fillRect(0,0,LiCanvas.canvasWidth,LiCanvas.canvasHeight)
 }

@@ -1,35 +1,35 @@
 import {runTask} from "./task";
 
-export function saveMixin(LeeCanvas) {
-    LeeCanvas.prototype.draw=function (callback='') {
+export function saveMixin(LiCanvas) {
+    LiCanvas.prototype.draw=function (callback='') {
         runTask(this,callback)
     }
 
-    LeeCanvas.prototype.getImageData=function () {
+    LiCanvas.prototype.getImageData=function () {
         return this.canvas.toDataURL('image/png')
     }
 
-    LeeCanvas.prototype.saveToPng=function (fileName='lee-canvas') {
+    LiCanvas.prototype.saveToPng=function (fileName='lee-canvas') {
         this.saveFileName=fileName+'.png'
         saveToImage(this,'png')
     }
 
-    LeeCanvas.prototype.saveToJpeg=function (fileName='lee-canvas') {
+    LiCanvas.prototype.saveToJpeg=function (fileName='lee-canvas') {
         this.saveFileName=fileName+'.jpeg'
         saveToImage(this,'jpeg')
     }
 
-    LeeCanvas.prototype.saveToGif=function (fileName='lee-canvas') {
+    LiCanvas.prototype.saveToGif=function (fileName='lee-canvas') {
         this.saveFileName=fileName+'.gif'
         saveToImage(this,'gif')
     }
 
 }
 
-function saveToImage(LeeCanvas,type){
+function saveToImage(LiCanvas,type){
     type=fixType(type)
-    let strData=getDataURL(LeeCanvas,type)
-    saveFile(LeeCanvas,strData)
+    let strData=getDataURL(LiCanvas,type)
+    saveFile(LiCanvas,strData)
 }
 
 function fixType(type) {
@@ -38,14 +38,14 @@ function fixType(type) {
     return 'image/' + type;
 }
 
-function getDataURL(LeeCanvas,type){
-    return LeeCanvas.canvas.toDataURL(type)
+function getDataURL(LiCanvas,type){
+    return LiCanvas.canvas.toDataURL(type)
 }
 
-function saveFile(LeeCanvas,strData) {
+function saveFile(LiCanvas,strData) {
     // document.location.href = strData;
     var a = document.createElement('a');
     a.href = strData;
-    a.download = LeeCanvas.saveFileName
+    a.download = LiCanvas.saveFileName
     a.click();
 }

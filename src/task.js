@@ -3,24 +3,24 @@ import {drawImage} from "./drawImage";
 import {drawTexts} from "./drawText";
 
 
-export function addTask(LeeCanvas,type,params) {
-    LeeCanvas.tasks.push({type,params})
+export function addTask(LiCanvas,type,params) {
+    LiCanvas.tasks.push({type,params})
 }
 
-export function runTask(LeeCanvas,callback) {
-    if(LeeCanvas.tasks.length==0){
+export function runTask(LiCanvas,callback) {
+    if(LiCanvas.tasks.length==0){
         typeof callback=='function'&&callback()
         return
     }
-    let task=LeeCanvas.tasks.shift()
+    let task=LiCanvas.tasks.shift()
     if(task){
         switch (task.type){
             case DRAW_IMAGE_TASK:
-                drawImage(LeeCanvas,task.params,()=>{runTask(LeeCanvas,callback)})
+                drawImage(LiCanvas,task.params,()=>{runTask(LiCanvas,callback)})
                 break
             case DRAW_TEXT_TASK:
-                drawTexts(LeeCanvas,task.params)
-                runTask(LeeCanvas,callback)
+                drawTexts(LiCanvas,task.params)
+                runTask(LiCanvas,callback)
                 break
             default:
                 break

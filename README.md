@@ -1,4 +1,4 @@
-# lee-canvas.js
+# li-canvas.js
 
 > 对Html5的canvas功能进行了封装，方便进行多图片绘制、圆角图片绘制、多行文字绘制、图片保存下载等功能.
 
@@ -12,7 +12,7 @@
 # npm安装
 ```sh
 # npm 安装
-npm install --save lee-canvas
+npm install --save li-canvas
 ```
 
 
@@ -21,20 +21,20 @@ npm install --save lee-canvas
 在html引入文件.
 
 ```html
-<script src="dist/lee-canvas.js"></script>
+<script src="dist/li-canvas.js"></script>
 ```
 
 # 如何使用
 
 ## 实例化
-使用lee-canvas时需要先实例化对象，new LeeCanvas(canvas_id,options),传入canvas的id
+使用li-canvas时需要先实例化对象，new LiCanvas(canvas_id,options),传入canvas的id
 
 ```html
 	...
 <body>
 <canvas id="test" width="1563" height="1180"></canvas>
 <script>
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
 </script>
 </body>
 	...
@@ -77,7 +77,7 @@ borderRadius：图片圆角半径
         borderRadius:0 //图片圆角半径
     }
 
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
 
     canvas.addDrawImageTask(bg)  //添加绘图任务，并没有立即进行绘图
 
@@ -135,7 +135,7 @@ borderRadius：图片圆角半径
         }
     ]
 
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
 
     canvas.addDrawImageTask(img1)
     canvas.addDrawImageTask(img2)   //多次调用实现多图绘制
@@ -167,7 +167,7 @@ borderRadius：图片圆角半径
         borderRadius:50  //设置圆角半径，当圆角半径为正方形边长一半时，就是一个圆形了
     }
 
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
     canvas.addDrawImageTask(img1)
     canvas.draw(()=>{
        console.log("绘制完成")
@@ -212,7 +212,7 @@ style：文字样式，包括
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
 <script>
-   var canvas=new LeeCanvas('test')
+   var canvas=new LiCanvas('test')
    canvas.addDrawTextTask("要绘制的文字",{
            x:110,
            y:496,
@@ -245,7 +245,7 @@ style：文字样式，包括
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
 <script>
-   var canvas=new LeeCanvas('test')
+   var canvas=new LiCanvas('test')
    canvas.addDrawTextTask(["要绘制的文字段落1","要绘制的文字段落2"],{
            x:110,
            y:496,
@@ -272,7 +272,7 @@ style：文字样式，包括
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
 <script>
-   var canvas=new LeeCanvas('test',{
+   var canvas=new LiCanvas('test',{
        fontStyle:{
            fontSize:20,
            fontFamily:"PingFangSC-Regular,'Microsoft YaHei',SimSun,Arial,'Helvetica Neue',sans-serif",
@@ -309,7 +309,7 @@ style：文字样式，包括
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
 <script>
-   var canvas=new LeeCanvas('test',{
+   var canvas=new LiCanvas('test',{
        fontStyle:{
            fontSize:20,
            fontFamily:"PingFangSC-Regular,'Microsoft YaHei',SimSun,Arial,'Helvetica Neue',sans-serif",
@@ -362,10 +362,10 @@ style：文字样式，包括
         borderRadius:0
     }
 
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
     canvas.addDrawImageTask(bg)
     canvas.draw(()=>{
-       canvas.saveToPng("lee-canvas")
+       canvas.saveToPng("li-canvas")
     })
 </script>
 </body>
@@ -392,7 +392,7 @@ style：文字样式，包括
         borderRadius:0
     }
 
-    var canvas=new LeeCanvas('test')
+    var canvas=new LiCanvas('test')
     canvas.addDrawImageTask(bg)
     canvas.draw(()=>{
        var src=canvas.getImageData()

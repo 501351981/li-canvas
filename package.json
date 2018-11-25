@@ -1,7 +1,7 @@
 {
-  "name": "lee-canvas",
+  "name": "li-canvas",
   "private": false,
-  "officialName": "lee-canvas.js",
+  "officialName": "li-canvas.js",
   "version": "0.0.1",
   "main": "lib/index.js",
   "summary": "封装了canva的图片绘制、文字绘制、图片下载等功能",
