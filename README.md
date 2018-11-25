@@ -45,13 +45,21 @@ npm install --save lee-canvas.js
 - 绘制单张图片
 
 调用addDrawImageTask(image)，其中参数image是一个对象，包括
+
 src：图片的url地址
+
 x：图片在canvas画布上的左上角x坐标
+
 y：图片在canvas画布上的左上角y坐标
+
 width：图片绘制宽度
+
 height：图片绘制高度
+
 borderRadius：图片圆角半径
+
 调用addDrawImageTask(image)时，并没有立即绘制图片，而是添加了一个绘图任务，只有调用draw(callback)时，才执行绘图任务，执行完成调用callback回调函数
+
 为什么这么做呢？因为图片绘制的时候需要先下载图片，这是个异步操作，所以先添加到任务列表，调用draw()的时候再按照任务添加顺序依次执行
 
 ```html
