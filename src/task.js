@@ -2,11 +2,6 @@ import {DRAW_TEXT_TASK,DRAW_IMAGE_TASK} from "./constant";
 import {drawImage} from "./drawImage";
 import {drawTexts} from "./drawText";
 
-export function taskMixin(LeeCanvas) {
-    LeeCanvas.prototype.draw=function(callback=''){
-        runTask(this,callback)
-    }
-}
 
 export function addTask(LeeCanvas,type,params) {
     LeeCanvas.tasks.push({type,params})

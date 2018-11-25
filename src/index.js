@@ -1,5 +1,4 @@
 import {initMixin} from "./init";
-import {taskMixin} from "./task";
 import {drawImageMixin} from "./drawImage";
 import {drawTextMixin} from "./drawText";
 import {saveMixin} from "./save";
@@ -13,7 +12,6 @@ function LeeCanvas(canvas_id,options) {
 }
 
 initMixin(LeeCanvas)
-taskMixin(LeeCanvas)
 drawImageMixin(LeeCanvas)
 drawTextMixin(LeeCanvas)
 saveMixin(LeeCanvas)

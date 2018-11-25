@@ -1,7 +1,7 @@
 import {runTask} from "./task";
 
 export function saveMixin(LeeCanvas) {
-    LeeCanvas.prototype.draw=function (callback) {
+    LeeCanvas.prototype.draw=function (callback='') {
         runTask(this,callback)
     }
 

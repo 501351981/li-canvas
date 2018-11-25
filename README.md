@@ -12,7 +12,7 @@
 # npm安装
 ```sh
 # npm 安装
-npm install --save lee-canvas.js
+npm install --save lee-canvas
 ```
 
 
@@ -138,66 +138,9 @@ borderRadius：图片圆角半径
     var canvas=new LeeCanvas('test')
 
     canvas.addDrawImageTask(img1)
-    canvas.addDrawImageTask(img2)
+    canvas.addDrawImageTask(img2)   //多次调用实现多图绘制
 
-    canvas.addDrawImageTask(imgs)   //直接传图一个数组也可以实现多图绘制
-
-    canvas.draw(()=>{
-       console.log("绘制完成")
-    })
-</script>
-</body>
-	...
-```
-```html
-	...
-<body>
-<canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
-
-<script>
-    var img1={
-        src:"http://*****.com/***.png",
-        x:0,
-        y:0,
-        width:1563,
-        height:1180,
-        borderRadius:0
-    }
-
-    var img2={
-            src:"http://*****.com/***.png",
-            x:0,
-            y:0,
-            width:1563,
-            height:1180,
-            borderRadius:0
-     }
-
-    var imgs=[
-        {
-             src:"http://*****.com/***.png",
-             x:0,
-             y:0,
-             width:100,
-             height:100,
-             borderRadius:0
-        },
-        {
-             src:"http://*****.com/***.png",
-             x:0,
-             y:0,
-             width:100,
-             height:100,
-             borderRadius:0
-        }
-    ]
-
-    var canvas=new LeeCanvas('test')
-
-    canvas.addDrawImageTask(img1)
-    canvas.addDrawImageTask(img2)
-
-    canvas.addDrawImageTask(imgs)   //直接传图一个数组也可以实现多图绘制
+    canvas.addDrawImageTask(imgs)   //直接传入一个数组也可以实现多图绘制
 
     canvas.draw(()=>{
        console.log("绘制完成")
