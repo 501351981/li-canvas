@@ -14,6 +14,8 @@ const downloadMime = 'image/octet-stream'
 const DRAW_IMAGE_TASK='DRAW_IMAGE_TASK'
 const DRAW_TEXT_TASK='DRAW_TEXT_TASK'
 
+import {isArray,isObject,isString} from "./utils";
+
 const defaultParams={
     backgroundColor:'#ffffff',
     fontStyle:{
@@ -29,20 +31,6 @@ const defaultParams={
     }
 }
 
-function isArray(obj) {
-    let array=[]
-    return Object.prototype.toString.call(obj)==Object.prototype.toString.call(array)
-}
-
-function isObject(obj) {
-    let object={}
-    return Object.prototype.toString.call(obj)==Object.prototype.toString.call(object)
-}
-
-function isString(str) {
-    let string='a'
-    return Object.prototype.toString.call(str)==Object.prototype.toString.call(string)
-}
 
 class Canvas {
     constructor(canvas_id,{backgroundColor,fontStyle}=defaultParams){
@@ -260,4 +248,7 @@ class Canvas {
 
 }
 
+Canvas.prototype.said=function () {
+    console.log("执行了said")
+}
 export default Canvas

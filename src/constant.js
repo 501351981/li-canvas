@@ -1,0 +1,2 @@
+export const DRAW_IMAGE_TASK='DRAW_IMAGE_TASK'
+export const DRAW_TEXT_TASK='DRAW_TEXT_TASK'
