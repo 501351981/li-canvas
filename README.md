@@ -18,7 +18,7 @@ npm install --save li-canvas
 
 # 直接引用
 
-在html引入文件.
+在html中直接引入js文件.
 
 ```html
 <script src="dist/li-canvas.js"></script>
@@ -27,9 +27,11 @@ npm install --save li-canvas
 # 如何使用
 
 ## 实例化
-使用li-canvas时需要先实例化对象，new LiCanvas(canvas_id,options),传入canvas的id
+使用li-canvas时需要先实例化对象，new LiCanvas(canvas_id,options),传入canvas的id，options选填，可以设置canvas背景和默认文字样式等
 
 ```html
+	...
+	<script src="../dist/li-canvas.js"></script>
 	...
 <body>
 <canvas id="test" width="1563" height="1180"></canvas>
@@ -64,6 +66,8 @@ borderRadius：图片圆角半径
 
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 <img src="./bg.jpg" id="img" width="0" height="0">
@@ -94,6 +98,8 @@ borderRadius：图片圆角半径
 
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -154,6 +160,8 @@ borderRadius：图片圆角半径
 只需要设置borderRadius即可
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -208,6 +216,8 @@ style：文字样式，包括
 
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -241,6 +251,8 @@ style：文字样式，包括
 
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -268,6 +280,8 @@ style：文字样式，包括
 其中style也可以在对象实例化的时候传入一个默认值，避免反复设置一些共用的style
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -305,6 +319,8 @@ style：文字样式，包括
 如果多段文字中，有一段的文字需要设置不同的样式，也可以单独指定样式，如下， 是不是很灵活~
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -349,6 +365,8 @@ style：文字样式，包括
 注意：下载图片必须在draw()的回调函数中调用才可以生效
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 
@@ -379,6 +397,8 @@ style：文字样式，包括
 
 ```html
 	...
+	<script src="../dist/li-canvas.js"></script>
+    ...
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 <img src="./bg.jpg" id="img" >
