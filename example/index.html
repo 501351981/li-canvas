@@ -8,6 +8,7 @@
 <body>
 <canvas id="test" width="1563" height="1180" style="width: 782px;height: 590px;border: 1px solid red"></canvas>
 <img src="./bg.jpg" id="img" width="0" height="0">
+
 <script>
     var bg={
         src:document.getElementById('img').src,//或者图片的url地址
@@ -17,8 +18,22 @@
         height:1180,//图片绘制高度
         borderRadius:0 //图片圆角半径
     }
+    var bg2={
+        src:document.getElementById('img').src,//或者图片的url地址
+        x:0,//左上角的x坐标
+        y:0,//左上角的y坐标
+        width:100,//图片绘制宽度
+        height:100,//图片绘制高度
+        borderRadius:0 //图片圆角半径
+    }
 
-    var canvas=new LiCanvas('test')
+    var canvas=new LiCanvas('test',{
+        fontStyle:{
+        },
+        // backgroundColor:'green',
+        // backgroundImage:'http://static.shanhuxueyuan.com/photos/8d4e5df3651be21134b403aecbd78804.jpeg!qftt.news',
+        // backgroundRepeat:'no-repeat'
+    })
     canvas.addDrawImageTask(bg)
     canvas.addDrawTextTask(['【企服观察】美团上市后首份季报：B端成新增长点，出行业务仍拖累财报',{
         text:"美团第三季度营业收入191亿元，同比增长97%；毛利总额46亿元，同比增长33.2%。",
@@ -36,9 +51,31 @@
         color:'#1a1a1a',
         marginBottom:40
     })
+    canvas.addDrawTextTask(['李玉林','测试一下','测试一下'],{
+        x:500,
+        y:100,
+        width:500,
+        fontSize:54,
+        fontWeight:'bolder',
+        fontFamily:"PingFangSC-Regular,'Microsoft YaHei',SimSun,Arial,'Helvetica Neue',sans-serif",
+        lineHeight:70,
+        color:'#1a1a1a',
+        marginBottom:80,
+        // textDirection:'vertical',
+        // textDirection:'horizontal',
+        rowDirection:'ltr',
+        // rowDirection:'rtl',
+
+    })
+    // canvas.addSetBackgroundTask({
+    //     backgroundColor:'green',
+    //     // backgroundImage:'http://static.shanhuxueyuan.com/photos/8d4e5df3651be21134b403aecbd78804.jpeg!qftt.news',
+    //     // backgroundRepeat:'no-repeat'
+    // })
     canvas.draw(()=>{
-        canvas.saveToPng()
-        console.log(canvas.getImageData())
+        // canvas.saveToPng()
+        // console.log(canvas.getImageData())
+
     })
 </script>
 </body>

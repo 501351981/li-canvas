@@ -36,6 +36,7 @@ export function drawTexts(LiCanvas,{text,style}){
     }
 }
 function drawText(LiCanvas,text,style){
+
     if(style.hasOwnProperty('x')){
         LiCanvas.fontStartX = style.x
     }
@@ -43,16 +44,27 @@ function drawText(LiCanvas,text,style){
         LiCanvas.fontStartY = style.y
     }
     let rowWidth
+
     if(style.hasOwnProperty('width')){
         rowWidth=style.width
     }else {
-        rowWidth=LiCanvas.canvasWidth-LiCanvas.fontStartX
+        rowWidth=style.textDirection=='horizontal'?LiCanvas.canvasWidth-LiCanvas.fontStartX:LiCanvas.canvasHeight-LiCanvas.fontStartY
     }
 
     LiCanvas.ctx.font=[style.fontStyle,style.fontWeight,style.fontSize+'px',style.fontFamily].join(" ")
     LiCanvas.ctx.fillStyle=style.color
     LiCanvas.ctx.textBaseline="top"
 
+    if(style.textDirection=='horizontal'){
+        drawTextHorizontal(LiCanvas,text,rowWidth,style)
+    }else {
+        drawTextVertical(LiCanvas,text,rowWidth,style)
+    }
+
+
+}
+
+function drawTextHorizontal(LiCanvas,text,rowWidth,style) {
     let temp = "";
     let row = [];
     for(let i = 0; i < text.length; i++){
@@ -72,3 +84,42 @@ function drawText(LiCanvas,text,style){
         }
     }
 }
+
+function drawTextVertical(LiCanvas,text,rowWidth,style) {
+    let temp = "";
+    let row = [];
+    for(let i = 0; i < text.length; i++){
+        temp += text[i];
+        if( LiCanvas.ctx.measureText(temp).width >= rowWidth || i==text.length-1){
+            row.push(temp);
+            temp = "";
+        }
+    }
+
+    for(let j = 0; j < row.length; j++){
+        let t=row[j];
+        let startY=LiCanvas.fontStartY
+        for(let k=0;k<t.length;k++){
+            LiCanvas.ctx.fillText(t[k],Math.floor(LiCanvas.fontStartX),Math.floor(LiCanvas.fontStartY));
+            LiCanvas.fontStartY+=style.fontSize
+        }
+        LiCanvas.fontStartY=startY
+
+        if(j<row.length-1){
+            if(style.rowDirection=='ltr'){
+                LiCanvas.fontStartX+=style.lineHeight
+            }else {
+                LiCanvas.fontStartX-=style.lineHeight
+            }
+
+        }else {
+            if(style.rowDirection=='ltr'){
+                LiCanvas.fontStartX+=style.fontSize+style.marginBottom
+            }else {
+                LiCanvas.fontStartX-=style.fontSize+style.marginBottom
+            }
+
+        }
+    }
+}
+
