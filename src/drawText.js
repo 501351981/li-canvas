@@ -6,6 +6,10 @@ export function drawTextMixin(LiCanvas) {
     LiCanvas.prototype.addDrawTextTask=function(text,style={}){
         addTask(this,DRAW_TEXT_TASK,{text,style})
     }
+
+    LiCanvas.prototype.measureTextWidth =function (text,style={}) {
+        return measureTextWidth(this,text,style)
+    }
 }
 
 export function drawTexts(LiCanvas,{text,style}){
@@ -121,5 +125,10 @@ function drawTextVertical(LiCanvas,text,rowWidth,style) {
 
         }
     }
+}
+
+function measureTextWidth(LiCanvas,text,style) {
+    LiCanvas.ctx.font=[style.fontStyle,style.fontWeight,style.fontSize+'px',style.fontFamily].join(" ")
+    return LiCanvas.ctx.measureText(text).width
 }
 
